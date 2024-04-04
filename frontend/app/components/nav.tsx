@@ -34,7 +34,7 @@ const Navigation = () => {
             <div className='menu'>
               <Link href="/about">about us</Link>
               <Link href="/contact">contact</Link>
-              <Link href="/account">contact</Link>
+              <Link href="/account">account</Link>
             </div>
           )}
         </div>
