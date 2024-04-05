@@ -1,9 +1,11 @@
 import React from 'react';
 import './page.modules.css';
+import Navigation from '../components/nav';
 
 function JoinPage() {
   return (
     <div className="container">
+      <Navigation/>
       <h1>Create Account</h1>
       <form>
         <label htmlFor="name">Name:</label>

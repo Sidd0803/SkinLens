@@ -1,9 +1,13 @@
 'use client'
 import React from 'react';
+import Navigation from '../components/nav';
 import './page.modules.css'
 
 function LoginPage() {
   return (
+    <div> 
+      <Navigation/>
+
     <div className="login-container">
       <div className="login-box">
         <h2>Login</h2>
@@ -23,6 +27,7 @@ function LoginPage() {
           <p>Don't have an account? <a href="/join">Sign up</a></p>
         </div>
       </div>
+    </div>
     </div>
   );
 }
