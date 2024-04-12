@@ -51,8 +51,8 @@ export default App;
       // option to go to log 
 // log 
   // view current records
-  // add new skincare
-  // add new medications
+  // add new skincare or meds
+  // upload image and get classification
   // progression
       // can see open progression timelines [NEED DYNAMIC ROUTING FOR THIS W DATA FROM BACKEND]
       // can create new progression timelines 
@@ -68,3 +68,9 @@ export default App;
 
 // about
 // contact
+
+// login/create -> personalized homepage ->
+
+// figma mockup 
+// 2. database schema + fake data for one user only 
+// 3. static pages 
