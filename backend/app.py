@@ -1,14 +1,21 @@
-from flask import Flask
-from flask import Flask, request, render_template  
+from flask import Flask, request, render_template, jsonify 
 import torch  
 from torchvision import models
 import torchvision.transforms as transforms
 from PIL import Image
-
+import firebase_admin
+from firebase_admin import db
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 model = models.resnet18(pretrained=True)
 model.eval()
+
+#firebase code
+firebase_admin.initialize_app(options={
+    'databaseURL': "https://skinlens-2f56d-default-rtdb.firebaseio.com",
+})
  
 def process_image(image):
     # Preprocess image for model
@@ -22,12 +29,16 @@ def process_image(image):
     
     return image_tensor
 
-# def home():
-#     return 'Welcome to the PyTorch Flask app!'
+@app.route('/get_data', methods=['GET'])
+def get_data():
+    #user_id = request.args.get()
+    ref = db.reference(f'/user')
+    user_data = ref.get()
+    return jsonify(user_data)
 
-#@app.route('/')
+@app.route('/')
 def predict():
-    # Get uploaded image file
+    # Get uploaded image file [GET, POST]
     image = Image.open('./mole.jpg').convert('RGB')
     # Process image and make prediction
     image_tensor = process_image(image)
@@ -38,24 +49,11 @@ def predict():
     print(probabilities)
     top_probs, top_catids = torch.topk(probabilities, 5)
     
-
     # Get the index of the highest probability
     class_index = probabilities.argmax()
-    print(class_index)
-
-    # # Get the predicted class and probability
-    # predicted_class = class_names[class_index]
-    # probability = probabilities[class_index]
-
-    # # Sort class probabilities in descending order
-    # class_probs = list(zip(class_names, probabilities))
-    # class_probs.sort(key=lambda x: x[1], reverse=True)
-
-    # # Render HTML page with prediction results
-    # return render_template('predict.html', class_probs=class_probs,
-    #                        predicted_class=predicted_class, probability=probability)
+    return f"highest probability:{class_index}"
     
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
 
 predict()
