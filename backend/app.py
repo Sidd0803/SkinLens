@@ -17,6 +17,7 @@ cred = credentials.Certificate('../../skinlens-2f56d-firebase-adminsdk-tqy3l-88e
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://skinlens-2f56d-default-rtdb.firebaseio.com",
 })
+
  
 def process_image(image):
     # Preprocess image for model
