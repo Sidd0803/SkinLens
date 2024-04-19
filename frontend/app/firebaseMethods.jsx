@@ -1,5 +1,8 @@
 import { ref, onValue } from 'firebase/database';
 
+
+
+
 const fetchUserData = (database, userId) => {
     const userRef = ref(database, `users/${userId}`);
     const userListener = onValue(userRef, (snapshot) => {
@@ -13,6 +16,23 @@ const fetchUserData = (database, userId) => {
         userListener();
     };
 };
+
+
+const fetchAllData = (database, setItem, userid) => {
+    const userRef = ref(database, `users/userid`);
+    const userListener = onValue(userRef, (snapshot) => {
+        const userData = snapshot.val();
+        if(userData) {
+            console.log('User Data:', userData);
+            setItem(userData);
+        }
+    });
+
+    return () => {
+        userListener();
+    };
+};
+
 
 const fetchUserMedications = (database, userId) => {
     const medicationsRef = ref(database, `users/${userId}/medications`);
@@ -56,6 +76,9 @@ const fetchUserLogs = (userId) => {
     };
 };
 
+
+
+
 const fetchUserChats = (userId) => {
     const chatsRef = ref(database, `users/${userId}/chats`);
     const chatsListener = onValue(chatsRef, (snapshot) => {
@@ -70,5 +93,25 @@ const fetchUserChats = (userId) => {
     };
 };
 
-export { fetchUserData, fetchUserMedications, fetchUserPhysicians, fetchUserChats, fetchUserLogs};
+export { fetchUserData, fetchAllData, fetchUserMedications, fetchUserPhysicians, fetchUserChats, fetchUserLogs};
 
+
+
+
+
+// useEffect(() => {
+//     const eventRef = ref(database, 'todo');
+//     const eventListener = onValue(eventRef, (snapshot) =>
+//     {
+//       const eventData = snapshot.val();
+//       if (eventData)
+//       {
+//         setEvents(Object.keys(eventData));
+//         setTodos(eventData);
+//       }
+//     });
+
+//     return () => {
+//       eventListener();
+//     };
+//   }, []);
