@@ -10,3 +10,5 @@ imageio
 seaborn
 glob
 scipyit
+scipy
+firebase-admin
