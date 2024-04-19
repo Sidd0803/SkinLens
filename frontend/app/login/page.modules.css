@@ -55,6 +55,24 @@
   margin-bottom: 20px;
 }
 
+.toggle-password-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #84ACA9; /* Adjust color as needed */
+}
+
+/* Hide the default input type="password" eye icon in browsers */
+.form-input::-ms-reveal,
+.form-input::-ms-clear {
+  display: none;
+}
+
 .input-icon {
   position: absolute;
   left: 10px;

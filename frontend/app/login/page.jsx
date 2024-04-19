@@ -1,9 +1,11 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/nav';
 import './page.modules.css';
 
 function LoginPage() {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
   // Hook to dynamically load Font Awesome
   useEffect(() => {
     const fontAwesomeScript = document.createElement('link');
@@ -15,6 +17,10 @@ function LoginPage() {
       document.head.removeChild(fontAwesomeScript);
     };
   }, []);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   return (
     <div className="page-container">
@@ -30,15 +36,26 @@ function LoginPage() {
             <input type="text" className="form-input" placeholder="Email" />
           </div>
 
-          <div className="input-group">
+          <div className="input-group password-group">
             <i className="fa fa-lock input-icon"></i>
-            <input type="password" className="form-input" placeholder="Password" />
+            <input
+              type={isPasswordVisible ? 'text' : 'password'}
+              className="form-input"
+              placeholder="Password"
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="toggle-password-button"
+            >
+              <i className={`fa ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+            </button>
           </div>
 
           <div className="form-footer">
             <label className="remember-me">
               <input type="checkbox" />
-              <span>Remember me</span> {/* Wrapped text in span for styling */}
+              <span>Remember me</span>
             </label>
             <a href="/reset-password" className="forgot-password">Forgot password?</a>
           </div>
