@@ -1,40 +1,45 @@
+
 'use client'
 import React from "react";
 import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
-import { Button } from "react-bootstrap";
-import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { Card } from "react-bootstrap";
 
-function DiagnosisPage(){
 
-    return(
+export default function DiagnosisPage(){
 
-        <main>
 
-                <Card className="text-center">
-                
-                    <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                        <Image src="banana.jpg"xs = {2} md = {2} xl = {1} width={200} height={200} rounded/> 
-                    </Card.Body>
-                </Card>
+    return (
+        <div>
 
-                <Form.Group controlId="formFile" className="text-center">
-                    <Form.Label>Upload a photo for diagnosis</Form.Label>
-                    <Form.Control type="file" />
-                </Form.Group>
+<Card className="text-center">
+      
+      <Card.Body>
+      <Image src="banana.jpg" width  = "200" height = "200" rounded />
+      </Card.Body>
+    </Card>
 
-                    <Card className = "text-center">
-                        <Card.Title>
-                            Your Results
-                            </Card.Title>
+    
+<div className="text-center"> 
+         <Button as="input" type="reset" value="Upload an Image" />
+</div>
 
-                        <Card.Body>
-                            Some data about your results go here!
-                        </Card.Body>
-                    </Card>
-        </main>
+<Card className="text-center">
+
+    <Card.Title>
+        Your results
+    </Card.Title>
+
+    <Card.Body>
+
+        sample text with your results
+    </Card.Body>
+
+
+</Card>
+
+        </div>
     )
-}
 
-export default DiagnosisPage;
+
+}

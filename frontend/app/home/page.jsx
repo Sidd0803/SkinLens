@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../components/nav';
-import './page.modules.css'
+
 
 function HomePage() {
   // Fake data for current routine and products

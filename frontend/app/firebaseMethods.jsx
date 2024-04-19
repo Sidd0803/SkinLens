@@ -1,5 +1,6 @@
 import { ref, onValue } from 'firebase/database';
 
+
 const fetchUserData = (database, userId) => {
     const userRef = ref(database, `users/${userId}`);
     const userListener = onValue(userRef, (snapshot) => {
