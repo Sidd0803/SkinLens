@@ -1,0 +1,116 @@
+/* contact.css */
+.chatbox {
+    display: flex;
+    flex-direction: column;
+    height: 90vh; /* adjust height as needed */
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    max-width: 400px;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.chat-messages div {
+    max-width: 70%;
+    min-width: 20%;
+    margin-bottom: 4px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: #84ACA9;
+    color: white;
+    line-height: 1.5;
+    word-wrap: break-word;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+
+.chat-input input {
+    flex: 1;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    background-color: #84ACA9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #84ACA9;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px; /* Adjust space between buttons */
+    display: flex;
+    align-items: center; /* Center align the icon vertically */
+    justify-content: center; /* Center align the icon horizontally */
+}
+
+.icon-button:hover {
+    color: #aad1f9;
+}
+
+.back-button, .chat-actions {
+    display: flex;
+    flex-direction: row; /* Ensure children (icons) are laid out in a row */
+}
+
+.video-call-button, .phone-call-button {
+    margin-left: 5px; /* Space between buttons */
+}
+
+.video-call-button {
+    margin-right: 2px; /* Tighter space towards the next button */
+}
+
+.phone-call-button {
+    margin-left: 2px; /* Tighter space from the previous button */
+}
+
+.chat-header {
+    display: flex;
+    align-items: center; /* Center items vertically within the header */
+    justify-content: space-between; /* Space out the back button, title, and action icons */
+    padding: 10px;
+    background-color: #84ACA9; /* Consistent theme color */
+    color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+
