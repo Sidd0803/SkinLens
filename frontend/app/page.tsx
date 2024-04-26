@@ -18,6 +18,7 @@ const Home = () => {
           <div className="d-flex flex-column text-center mt-4">
             <Button variant="primary" className="mr-2" href="/login">Login</Button>
             <Button variant="secondary" href="/join">Create Account</Button>
+            <Button variant="secondary" href="/notes">Notes</Button>
           </div>
         </Col>
       </Row>

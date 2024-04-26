@@ -8,7 +8,7 @@ function MedicationPage() {
     <div> 
       <Navigation/>
 
-      fill me in please!
+      
     </div>
   );
 }
