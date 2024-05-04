@@ -1,78 +1,140 @@
-/* shared styling */
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: white;
 }
 
-.button {
-    display: flex;
-    margin-top: 50px;
-    background-color: #FFC122;
-    padding: 10px 20px; 
-    border-radius: 5px;
-    font-size: 16px;
-    transition: all 0.3s ease; 
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.button:hover {
-    background-color: #FFD966;
+.login-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* progress timeline */
-.timeline {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .timeline-item {
-    display: flex;
-    margin-bottom: 60px;
-    position: relative;
-  }
-  
-
-  .date {
-    padding: 10px;
-    margin-right: 20px;
-    position: relative;
-  }
-  
-  .date::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -30px; 
-    transform: translateX(-50%);
-    width: 2px;
-    height: 250px;
-    background-color: #FFC122; 
+.textbox {
+  margin-bottom: 20px;
+  background:  #84ACA9;;
 }
-  .content {
-    display: flex;
-    align-items: center;
-  }
-  
-  img {
-    max-width: 400px;
-    max-height: 768px;
-    margin-right: 100px;
-  }
-  
-  @media (max-width: 768px) {
-    .timeline-item {
-      flex-direction: column;
-    }
-  
-    .date {
-      margin-right: 0;
-    }
-  
-    .content {
-      padding-left: 0;
-    }
-  }
-  
+
+.textbox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: Inter;
+
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background:  #84ACA9;;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background:  #84ACA9;;
+}
+
+.signup-link {
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color:  #84ACA9;;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.titleStyle {
+  font-weight: bold;        /* Makes text bold */
+  margin-bottom: 20px;
+  color: black;          /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 24px;      /* Font size 24 pixels */
+}
+
+.titleStyle2 {
+  color:  black;;          /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 18px; 
+  white-space: nowrap;     /* Prevents the text from wrapping */
+  flex-grow: 1;    
+  margin-bottom: 5px; /* Reduce space below the h1 heading */
+}
+
+.pageContainer {
+  background-color: white; /* Sets the background color to white */
+}
+
+.titleStyle3 {
+  color: white;          /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 18px; 
+  white-space: nowrap;     /* Prevents the text from wrapping */
+  flex-grow: 1;    
+}
+
+.titleStyle4 {
+  font-weight: bold;        /* Makes text bold */
+  color: #84ACA9;          /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 14px; 
+  white-space: nowrap;     /* Prevents the text from wrapping */
+  flex-grow: 1;    
+}
+
+.titleStyle5 {
+  font-weight: bold;        /* Makes text bold */
+  color: #84ACA9;          /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 14px; 
+  white-space: nowrap;     /* Prevents the text from wrapping */
+  flex-grow: 1;    
+}
+
+.textStyle2 {      
+  color: black;        /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 12px; 
+  white-space: nowrap;     /* Prevents the text from wrapping */
+  flex-grow: 1;    
+}
+
+.small-button {
+  padding: 1px 3px;  
+  font-size: 10px;   
+}
+
+.textStyle3 {
+  color: black;        /* Blue text */
+  font-family: Inter;   /* Arial font */
+  font-size: 12px; 
+  flex-grow: 1;  
+  word-wrap: break-word;   /* Allow long words to be able to break and wrap onto the next line */
+  overflow-wrap: break-word; /* Ensure that the browser will only break a line in the middle of a word if there are no other break points in the line */
+  white-space: normal;     /* Ensure that whitespace is handled normally, allowing it to wrap */
+}
+
+.p-2 {
+  flex: 2;  /* Make each segment of the horizontal stack take up equal space */
+  min-width: 2;  /* Override the default min-width of flex items if necessary */
+}
