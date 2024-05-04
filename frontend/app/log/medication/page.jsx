@@ -5,7 +5,7 @@ import styles from './page.modules.css'; // Assuming CSS Modules are being used 
 import { Stack, Button, Card } from 'react-bootstrap';
 
 
-function LoginPage() {
+function LogPage() {
   const [showCards, setShowCards] = useState({
     card1: false,
     card2: false,
@@ -29,7 +29,7 @@ function LoginPage() {
             <Button variant="primary" onClick={() => toggleCard('card1')}>Notes</Button>
           )}
           {showCards.card1 && (
-            <Card style={{ width: '24rem', marginTop: '10px', backgroundColor: '#84ACA9', display: showCards.card1 ? 'block' : 'none' }}>
+            <Card style={{ width: '20rem', marginTop: '10px', backgroundColor: '#84ACA9', display: showCards.card1 ? 'block' : 'none' }}>
               <Card.Body>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '175%'}}>
               <Card.Title className="titleStyle3" style={{ flexShrink: 1, maxWidth: '85%' }}>Notes</Card.Title>
@@ -66,4 +66,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default LogPage;
