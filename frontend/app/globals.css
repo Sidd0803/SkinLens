@@ -1,33 +1,112 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* .menu-container 
+{
+  display: flex;
+  align-items: flex-start;
+  justify-content:space-between;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  
+  .menu-button {
+    background-color: transparent;
+    color: blue;
+    font-size: x-large;
+    border: none;
+    cursor: pointer;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .menu-button-left {
+   align-self: flex-start;
   }
-}
+
+
+  .menu-button-left a{
+    color: blue;
+    text-decoration: none;
+  }
+
+  .menu-button-right 
+  {
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+  
+  .menu {
+    background-color: blue;
+    border: 1px solid #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+
+
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+  }
+
+  
+  .menu a:hover {
+    background-color: blue;
+  }
+   */
+   .menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  
+  .menu-button {
+    background-color: transparent;
+    color: blue;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+  }
+  
+  .menu a {
+    color: blue;
+    text-decoration: none;
+    padding: 10px;
+  }
+
+  .menu a:visited
+  {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+  }
+  
+  .menu-button-left a:visited{
+    color: blue;
+    text-decoration: none;
+  }
+
+  .menu-button-left {
+    align-self: flex-start;
+   }
+ 
+ 
+   .menu-button-left a{
+     color: blue;
+     text-decoration: none;
+   }
+ 
