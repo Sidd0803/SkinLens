@@ -4,20 +4,7 @@ import './page.modules.css'
 
 function HomePage() {
   // Fake data for current routine and products
-  const currentRoutine = [
-    { product: 'Cleanser', timeOfDay: 'Morning' },
-    { product: 'Moisturizer', timeOfDay: 'Morning' },
-    { product: 'Sunscreen', timeOfDay: 'Morning' },
-    { product: 'Serum', timeOfDay: 'Evening' },
-    { product: 'Moisturizer', timeOfDay: 'Evening' },
-  ];
 
-  // Fake data for recent progress pictures
-  const progressPictures = [
-    { image: 'progress1.jpg', date: '2022-07-15' },
-    { image: 'progress2.jpg', date: '2022-08-01' },
-    { image: 'progress3.jpg', date: '2022-08-15' },
-  ];
 
   return (
     <main >

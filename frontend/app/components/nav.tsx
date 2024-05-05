@@ -35,6 +35,7 @@ const Navigation = () => {
               <Link href="/about">about us</Link>
               <Link href="/contact">contact</Link>
               <Link href="/account">account</Link>
+              <Link href="/notes">Notes</Link>
             </div>
           )}
         </div>

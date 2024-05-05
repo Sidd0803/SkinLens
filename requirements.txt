@@ -9,4 +9,4 @@ pandas
 imageio
 seaborn
 glob
-scipy
+scipyit

@@ -170,3 +170,99 @@
   align-self: center; /* This helps to align the anchor link with the flex items */
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: white;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .login-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .textbox {
+    margin-bottom: 20px;
+    background:  #84ACA9;;
+  }
+  
+  .textbox input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: Inter;
+  
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background:  #84ACA9;;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background:  #84ACA9;;
+  }
+  
+  .signup-link {
+    margin-top: 20px;
+  }
+  
+  .signup-link a {
+    color:  #84ACA9;;
+    text-decoration: none;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  .titleStyle {
+    font-weight: bold;        /* Makes text bold */
+    margin-bottom: 20px;
+    color: black;          /* Blue text */
+    font-family: Inter;   /* Arial font */
+    font-size: 24px;      /* Font size 24 pixels */
+  }
+
+  .titleStyle2 {
+    color:  black;;          /* Blue text */
+    font-family: Inter;   /* Arial font */
+    font-size: 18px; 
+    white-space: nowrap;     /* Prevents the text from wrapping */
+    flex-grow: 1;    
+    margin-bottom: 5px; /* Reduce space below the h1 heading */
+  }
+
+  .pageContainer {
+    background-color: white; /* Sets the background color to white */
+  }
+
+  .titleStyle3 {
+    color: white;          /* Blue text */
+    font-family: Inter;   /* Arial font */
+    font-size: 18px; 
+    white-space: nowrap;     /* Prevents the text from wrapping */
+    flex-grow: 1;    
+  }
+
+  
