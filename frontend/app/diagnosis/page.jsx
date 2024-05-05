@@ -32,44 +32,44 @@ const DiagnosisPage = () => {
 
     
     const handleUploadImage = () => {
-        if (imageUpload === null) {
-          toastifyError("Please select an image");
-          return;
-        }
-        const imageRef = ref(storage,  'user/-NviBayQlBNn6zFkYQGc/-NviBayQlBNn6zFkYQGd/images}');
+      const fileInput = document.getElementById('formFile');
+      const file = fileInput.files[0];
+      if (!file) {
+        Error("Please select an image");
+        return;
+      }
+      const imageRef = storageRef(storage, `users/${userID}/images/${file.name}`);
+      uploadBytes(imageRef, file)
+        .then((snapshot) => {
+          getDownloadURL(snapshot.ref)
+            .then((url) => {
+              saveData(url);
+            })
+            .catch((error) => {
+              Error(error.message);
+            });
+        })
+        .catch((error) => {
+          Error(error.message);
+        });
+  };
+  
+
+    // useEffect(() => {
+    //     const imagesRef = ref(database, 'users/NviBayKoUKxjr3zxYlx/images');
+
+    //     const imagesListener = imagesRef.on('child_added', (imagesRef, (snapshot) => {
+    //         const imageData = snapshot.val();
+    //         if (imageData) {
+    //             const { result } = imageData;
+    //             setDiagnosisResult(result);
+    //         }
+    //     }));
     
-        uploadBytes(imageRef, imageUpload)
-          .then((snapshot) => {
-            getDownloadURL(snapshot.ref)
-              .then((url) => {
-                saveData(url);
-              })
-              .catch((error) => {
-                toastifyError(error.message);
-              });
-          })
-          .catch((error) => {
-            toastifyError(error.message);
-          });
-      };
-
-
-    useEffect(() => {
-        const imagesRef = ref(database, 'users/NviBayKoUKxjr3zxYlx/images');
-
-        const imagesListener = imagesRef.on('child_added', (imagesRef, (snapshot) => {
-            const imageData = snapshot.val();
-            if (imageData) {
-                const { result } = imageData;
-                setDiagnosisResult(result);
-            }
-        }));
-    
-        return () => {
-            imagesListener();
-        };
-    }, []);
-
+    //     return () => {
+    //         imagesListener();
+    //     };
+    // }, []);
 
 
 
@@ -85,10 +85,11 @@ const DiagnosisPage = () => {
                     </Card.Body>
                 </Card>
 
-                <Form.Group controlId="formFile" className="text-center" onSubmit={handleUploadImage}>
+                <Form.Group controlId="formFile" className="text-center">
                     <Form.Label>Upload a photo for diagnosis</Form.Label>
-                    <Form.Control type="file" />
+                    <Form.Control type="file"/>
                 </Form.Group>
+                <Button onClick={handleUploadImage}>Upload Image</Button>
 
                     <Card className = "text-center">
                         <Card.Title>
