@@ -1,0 +1,230 @@
+.container {
+    display: flex;
+    height: 90vh; /* maintain the height */
+    margin: 20px auto;
+    max-width: 80%; /* Adjust based on your design */
+    width: 80%; /* make it responsive */
+}
+
+.chat-selector {
+    width: 20%; /* Set the width of the chat selector */
+    background-color: #f2f2f2; /* A light background for the chat selector */
+    overflow-y: auto; /* Allows scrolling */
+    border-right: 1px solid #ccc; /* Separates the chat selector from chatbox */
+}
+
+.chat-selector-header {
+    padding: 10px;
+    background-color: #a9d1cf; /* Matching the chatbox header */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-item {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.chat-item:hover, .chat-item.active {
+    background-color: #84aca9;
+    color: white;
+}
+
+.chatbox {
+    flex-grow: 1; /* Allows chatbox to take remaining space */
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+.chat-item {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.chat-item:hover, .chat-item.active {
+    background-color: #84aca9;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chatbox {
+        max-width: 95%; 
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message {
+    max-width: 30%;
+    min-width: 20%;
+    margin-bottom: 4px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: #84ACA9;
+    color: white;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    align-self: flex-end; 
+    background-color: #84ACA9;  
+}
+
+.message.received {
+    align-self: flex-start; 
+    background-color: #DADEDF; 
+    color:#555f61
+}
+
+.chat-messages div {
+    max-width: 90%; 
+    min-width: 20%;
+    margin-bottom: 4px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: #84ACA9;
+    color: white;
+    line-height: 1.5;
+    word-wrap: break-word;
+    align-self: flex-end; 
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+    flex: 1;
+    margin-right: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    background-color: #84ACA9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #84ACA9;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+}
+
+.icon-button:hover {
+    color: #aad1f9;
+}
+
+.chat-title {
+    flex-grow: 1; /* Allows the title to take up the maximum available space */
+    text-align: center; /* Ensures the title is centered */
+    font-weight: bold;
+}
+
+.chat-actions {
+    display: flex;
+    /* If there are few or no items to balance the title, consider adjusting the width or padding */
+    width: 100px; /* Adjust this width as necessary to balance the title */
+    justify-content: flex-end; /* Aligns actions to the right */
+}
+
+
+.video-call-button, .phone-call-button {
+    margin-left: 5px; /* Space between buttons */
+}
+
+.video-call-button {
+    margin-right: 2px; 
+}
+
+.phone-call-button {
+    margin-left: 2px; 
+}
+
+.chat-header {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px;
+    background-color: #84ACA9; 
+    color: white;
+    border-bottom: 1px solid #ccc;
+}
+
+.new-chat-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto; /* pushes the button to the right */
+}
+
+.chat-selector-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between title and button */
+    padding: 10px;
+    background-color: #6fc2ba;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.chat-image {
+    width: 50px; /* Set the size of the profile image */
+    height: 50px;
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Space between the image and the chat name */
+}
+
+.chat-item:hover, .chat-item.active {
+    background-color: #84aca9;
+    color: white;
+}
+
