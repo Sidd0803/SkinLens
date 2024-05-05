@@ -7,7 +7,7 @@ import { faVideo, faPhone, faPlus, faPencilAlt } from '@fortawesome/free-solid-s
 const Chatbox = () => {
     const [messages, setMessages] = useState([{ text: 'Hello, how can I help you today?', type: 'received' }]);
     const [message, setMessage] = useState('');
-    const [currentChat, setCurrentChat] = useState({ name: "Dr. Menash T.", imageUrl: "path/to/image" }); // Assuming each chat has a name and image URL
+    const [currentChat, setCurrentChat] = useState({ name: "Dr. Menash T.", imageUrl: "path/to/image" }); 
 
     const chatList = [
         { name: "Dr. Mensah T.", imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg" },
@@ -20,6 +20,13 @@ const Chatbox = () => {
         if (message.trim() !== '') {
             setMessages([...messages, { text: message, type: 'sent' }]);
             setMessage('');
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();  // Prevents the default action of submitting the form
+            handleSendMessage(e);
         }
     };
 
@@ -69,7 +76,7 @@ const Chatbox = () => {
                     <button className="icon-button attachment-button">
                         <FontAwesomeIcon icon={faPlus} />
                     </button>
-                    <input type="text" placeholder="Write a message..." value={message} onChange={(e) => setMessage(e.target.value)} />
+                    <input type="text" placeholder="Write a message..." value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
                     <button onClick={handleSendMessage}>Send</button>
                 </div>
             </div>
