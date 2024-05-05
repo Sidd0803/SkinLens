@@ -1,33 +1,71 @@
 'use client'
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navigation from '../components/nav';
-import './page.modules.css'
+import './page.modules.css';
 
 function LoginPage() {
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  // Hook to dynamically load Font Awesome
+  useEffect(() => {
+    const fontAwesomeScript = document.createElement('link');
+    fontAwesomeScript.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css';
+    fontAwesomeScript.rel = 'stylesheet';
+    document.head.appendChild(fontAwesomeScript);
+
+    return () => {
+      document.head.removeChild(fontAwesomeScript);
+    };
+  }, []);
+
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+
   return (
-    <div> 
-      <Navigation/>
-
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Login</h2>
-        <form>
-          <div className="textbox">
-            <input type="text" placeholder="Username/Email" />
+    <div className="page-container">
+      <Navigation />
+      <div className="login-container">
+        <div className="title-with-logo">
+          <h2 className="login-title">Login to SkinLens</h2>
+          <img src="/SkinLensLogo.jpg" alt="SkinLensLogo" className="skinlens-logo" />
+        </div>
+        <form className="login-form">
+          <div className="input-group">
+            <i className="fa fa-envelope input-icon"></i>
+            <input type="text" className="form-input" placeholder="Email" />
           </div>
 
-          <div className="textbox">
-            <input type="password" placeholder="Password" />
+          <div className="input-group password-group">
+            <i className="fa fa-lock input-icon"></i>
+            <input
+              type={isPasswordVisible ? 'text' : 'password'}
+              className="form-input"
+              placeholder="Password"
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="toggle-password-button"
+            >
+              <i className={`fa ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+            </button>
           </div>
 
-          <input type="submit" className="btn" value="Login" />
+          <div className="form-footer">
+            <label className="remember-me">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <a href="/reset-password" className="forgot-password">Forgot password?</a>
+          </div>
+
+          <button type="submit" className="login-button">LOGIN</button>
         </form>
-
         <div className="signup-link">
-          <p>Don't have an account? <a href="/join">Sign up</a></p>
+          Don't have an account? <a href="/join" className="signup-button">Sign Up</a>
         </div>
       </div>
-    </div>
     </div>
   );
 }

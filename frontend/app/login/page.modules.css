@@ -1,96 +1,171 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: white;
-  }
-  
-  .login-container {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .login-box {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .textbox {
-    margin-bottom: 20px;
-    background:  #84ACA9;;
-  }
-  
-  .textbox input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-family: Inter;
-  
-  }
-  
-  .btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background:  #84ACA9;;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background:  #84ACA9;;
-  }
-  
-  .signup-link {
-    margin-top: 20px;
-  }
-  
-  .signup-link a {
-    color:  #84ACA9;;
-    text-decoration: none;
-  }
-  
-  .signup-link a:hover {
-    text-decoration: underline;
-  }
-  
-  .titleStyle {
-    font-weight: bold;        /* Makes text bold */
-    margin-bottom: 20px;
-    color: black;          /* Blue text */
-    font-family: Inter;   /* Arial font */
-    font-size: 24px;      /* Font size 24 pixels */
-  }
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
 
-  .titleStyle2 {
-    color:  black;;          /* Blue text */
-    font-family: Inter;   /* Arial font */
-    font-size: 18px; 
-    white-space: nowrap;     /* Prevents the text from wrapping */
-    flex-grow: 1;    
-    margin-bottom: 5px; /* Reduce space below the h1 heading */
-  }
+.title-with-logo {
+  display: flex;
+  align-items: center; /* Keep items aligned vertically */
+  justify-content: flex-start; /* Align items to the start of the container */
+  gap: 10px; /* Space between the title and the logo */
+}
 
-  .pageContainer {
-    background-color: white; /* Sets the background color to white */
-  }
+.login-title {
+  color: #84ACA9;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 0; /* Remove margin to align title with logo */
+  flex-grow: 1; /* Ensures that the title takes up available space, pushing the logo to the right */
+}
 
-  .titleStyle3 {
-    color: white;          /* Blue text */
-    font-family: Inter;   /* Arial font */
-    font-size: 18px; 
-    white-space: nowrap;     /* Prevents the text from wrapping */
-    flex-grow: 1;    
-  }
+.skinlens-logo {
+  height: 40px; /* Set a fixed height for the logo */
+  width: auto; /* Auto width to maintain aspect ratio */
+  align-self:first baseline /* This will center the logo vertically in case it is not the same height as the text */
+}
 
-  
+
+.login-container {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-title {
+  color: #84ACA9;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.toggle-password-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #84ACA9; /* Adjust color as needed */
+}
+
+/* Hide the default input type="password" eye icon in browsers */
+.form-input::-ms-reveal,
+.form-input::-ms-clear {
+  display: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.remember-me {
+  font-size: 14px;
+  user-select: none;
+}
+
+.forgot-password {
+  color: #84ACA9;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-button {
+  background-color: #84ACA9;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-button {
+  color: #84ACA9;
+  text-decoration: none;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #84ACA9; /* Or any color you prefer */
+}
+
+.form-input {
+  padding-left: 40px; /* Adjust padding to accommodate the icon */
+}
+
+.form-footer {
+  display: flex;
+  align-items: center; /* This ensures vertical alignment of the elements inside */
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.remember-me {
+  display: flex; /* Make remember-me also a flex container */
+  align-items: center; /* Align the checkbox and label text */
+  font-size: 14px;
+  user-select: none;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 8px; /* Adjust the space between the checkbox and the label text */
+  cursor: pointer;
+}
+
+/* Add this to vertically center the text next to the checkbox */
+.remember-me span {
+  line-height: normal;
+  vertical-align: middle;
+}
+
+.forgot-password {
+  color: #84ACA9;
+  text-decoration: none;
+  font-size: 14px;
+  align-self: center; /* This helps to align the anchor link with the flex items */
+}
