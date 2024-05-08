@@ -21,8 +21,8 @@ function HomePage() {
        
         <Container>
           <Row>
-            <Col xs = {3} md = {4} lg = {6}>
-            <h1 style={{ color: '#84ACA9' }} >Hello, name {' '}
+            <Col lg = {6}>
+            <h1 style={{ color: '#84ACA9'}} >Hello, name {' '}
               <Image src="SkinLensLogo.png" width = "100" height = "100" roundedCircle style={{ marginLeft: '20px' }} />
             </h1>
             </Col>
@@ -30,9 +30,9 @@ function HomePage() {
         </Container>
     </div>
     <div style={{textAlign: 'center'}}>
-          <Button href="Log" size="lg" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Log</Button> {' '}
-          <Button as="input" type="submit" value="Contact Doctor" size="lg" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} />{' '}
-          <Button href="diagnosis" size="lg" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} >Get a Diagnosis</Button> 
+          <Button href="Log" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Log</Button> {' '}
+          <Button as="input" type="submit" value="Contact Doctor" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} />{' '}
+          <Button href="diagnosis" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} >Get a Diagnosis</Button> 
     </div>
 
     <div style={{ paddingTop: '50px', textAlign: 'center' }}>
@@ -68,7 +68,7 @@ function HomePage() {
 
     <div style={{ paddingTop: '20px', textAlign: 'center' }}>
     <h2 style={{fontSize: '24px'}}>Recent Doctor's Recommendations and Notes</h2>
-      <Card className="text-center" style={{ width: '500px', height: '300px', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
+      <Card className="text-center" style={{ width: '400px', height: '300px', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
         <Card.Body style = {{color: 'white'}}>
           <Card.Title></Card.Title>
           <div style={{ marginBottom: '20px' }}>
