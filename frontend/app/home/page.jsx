@@ -31,7 +31,7 @@ function HomePage() {
     </div>
     <div style={{textAlign: 'center'}}>
           <Button href="Log" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Log</Button> {' '}
-          <Button as="input" type="submit" value="Contact Doctor" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} />{' '}
+          <Button href="doctors" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Contact Doctor</Button> {' '}
           <Button href="diagnosis" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} >Get a Diagnosis</Button> 
     </div>
 
