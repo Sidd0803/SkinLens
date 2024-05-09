@@ -58,9 +58,10 @@ function LogPage() {
             </Card>
           )}
         </div>
-        <h1 className="titleStyle2">Current Skin Concerns</h1>
         <div className="p-2" style={{ marginBottom: '20px', minHeight: '225px' }}>  
-        <Button variant="primary">add skin concern</Button>
+          <Button variant="primary">
+            <a href="/log/progression" style={{ textDecoration: 'none', color: 'inherit' }}>My Skin Concerns</a>
+          </Button>
         </div>
     </div>
   );
