@@ -5,7 +5,7 @@ import styles from './page.modules.css'; // Assuming CSS Modules are being used 
 import { Button, Card, Image, Stack, Modal, Form } from 'react-bootstrap';
 
 function ProgressionPage() {
-    const defaultImage = '../../banana.jpg';
+    const defaultImage = '../../genericlesion.jpeg';
     const [entries, setEntries] = useState([
         { id: 1, date: '5/4/2024', imageName: defaultImage, description: 'Initial Description', typeName: 'Initial Type' }
     ]);
@@ -47,7 +47,7 @@ function ProgressionPage() {
     return (
         <div className={styles.pageContainer}>
             <Navigation />
-            <h1 className="titleStyle">My Skin's Concern</h1>
+            <h1 className="titleStyle">My Skin Concerns</h1>
             <Stack gap={5}>
                 {entries.map((entry, index) => (
                     <Stack key={index} direction="horizontal" gap={3}>

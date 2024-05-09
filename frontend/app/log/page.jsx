@@ -13,4 +13,3 @@ function LogPage() {
 }
 
 export default LogPage();
-

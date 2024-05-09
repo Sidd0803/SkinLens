@@ -19,7 +19,7 @@ const Navigation = () => {
       <div className = 'menu-container'>
         <div className = 'menu-button-left'>
         <button className = 'menu-button'>
-        <Link href="/">SkinLens</Link>
+        <Link href="/home">SkinLens</Link>
         </button>
         </div>
 
@@ -31,10 +31,9 @@ const Navigation = () => {
 
           {isMenuOpen && (
             <div className='menu'>
-              <Link href="/about">about us</Link>
-              <Link href="/contact">contact</Link>
-              <Link href="/account">account</Link>
-              <Link href="/notes">Notes</Link>
+              <Link href="/diagnosis">My Diagnosis</Link>
+              <Link href="/doctors/contact">Contact</Link>
+              <Link href="/log/medication">Log</Link>
             </div>
           )}
         </div>

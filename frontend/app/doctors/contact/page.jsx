@@ -2,16 +2,24 @@
 import React, { useState } from 'react';
 import './contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navigation from '../../components/nav';
-import { faVideo, faPhone, faPlus, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faVideo, faPhone, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Chatbox = () => {
-    const [messages, setMessages] = useState([{ text: 'Hello, how can I help you today?', type: 'received' }]);
+    // Preset chat start with Dr. Mensah T.
+    const initialChat = { 
+        name: "Dr. Mensah T.", 
+        imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg" 
+    };
+    
+    const [messages, setMessages] = useState([
+        { text: `Starting chat with ${initialChat.name}`, type: 'received' }
+    ]);
     const [message, setMessage] = useState('');
-    const [currentChat, setCurrentChat] = useState({ name: "Dr. Menash T.", imageUrl: "path/to/image" }); 
+    const [currentChat, setCurrentChat] = useState(initialChat); 
+    const [showChatList, setShowChatList] = useState(false);
 
     const chatList = [
-        { name: "Dr. Mensah T.", imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg" },
+        initialChat,  // Use the same object to ensure consistency
         { name: "Dr. Bellamy N.", imageUrl: "https://media.istockphoto.com/id/138205019/photo/happy-healthcare-practitioner.jpg?s=612x612&w=0&k=20&c=b8kUyVtmZeW8MeLHcDsJfqqF0XiFBjq6tgBQZC7G0f0=" },
         { name: "Dr. Sasha Y.", imageUrl: "https://c8.alamy.com/comp/2BE42N7/smiling-asian-female-doctor-in-white-coat-2BE42N7.jpg" }
     ];
@@ -33,32 +41,43 @@ const Chatbox = () => {
 
     const selectChat = (chat) => {
         setCurrentChat(chat);
+        setShowChatList(false);
         setMessages([{ text: `Starting chat with ${chat.name}`, type: 'received' }]);
     };
 
-    const handleNewChat = () => {
-        console.log('Initiate new chat');
+    const toggleChatList = () => {
+        setShowChatList(!showChatList);
+    };
+
+    const handleFileSelect = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const newMessage = {
+                type: 'sent',
+                file: URL.createObjectURL(file),  // Creates a temporary URL to access the file
+            };
+            setMessages([...messages, newMessage]);
+        }
     };
 
     return (
         <div className="container">
-            <div className="chat-selector">
-                <div className="chat-selector-header">
-                    Chats
-                    <button className="new-chat-button" onClick={handleNewChat}>
-                        <FontAwesomeIcon icon={faPencilAlt} />
-                    </button>
-                </div>
-                {chatList.map((chat, index) => (
-                    <div key={index} className={`chat-item ${currentChat.name === chat.name ? 'active' : ''}`} onClick={() => selectChat(chat)}>
-                        <img src={chat.imageUrl} alt={chat.name} className="chat-image" />
-                        {chat.name}
-                    </div>
-                ))}
-            </div>
             <div className="chatbox">
                 <div className="chat-header">
-                    <div className="chat-title">{currentChat.name}</div>
+                    <div className="chat-title" onClick={toggleChatList}>
+                        <img src={currentChat.imageUrl} alt={currentChat.name} className="chat-image" />
+                        <span>{currentChat.name}</span>
+                        {showChatList && (
+                            <div className="dropdown-content">
+                                {chatList.map((chat, index) => (
+                                    <div key={index} className="dropdown-item" onClick={() => selectChat(chat)}>
+                                        <img src={chat.imageUrl} alt={chat.name} className="chat-image" />
+                                        <span>{chat.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                     <div className="chat-actions">
                         <button className="icon-button">
                             <FontAwesomeIcon icon={faPhone} />
@@ -70,11 +89,21 @@ const Chatbox = () => {
                 </div>
                 <div className="chat-messages">
                     {messages.map((msg, index) => (
-                        <div key={index} className={`message ${msg.type}`}>{msg.text}</div>
+                        <div key={index} className={`message ${msg.type}`}>
+                            {msg.file ? (
+                                <div>
+                                    <p>Attachment: <span>{msg.text}</span></p>
+                                    <img src={msg.file} alt="attachment" style={{ maxWidth: '200px', maxHeight: '200px' }} />
+                                </div>
+                            ) : (
+                                <p>{msg.text}</p>
+                            )}
+                        </div>
                     ))}
                 </div>
                 <div className="chat-input">
-                    <button className="icon-button attachment-button">
+                    <input type="file" id="file-input" style={{ display: 'none' }} onChange={handleFileSelect} />
+                    <button className="icon-button attachment-button" onClick={() => document.getElementById('file-input').click()}>
                         <FontAwesomeIcon icon={faPlus} />
                     </button>
                     <input type="text" placeholder="Write a message..." value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={handleKeyDown} />
@@ -86,5 +115,3 @@ const Chatbox = () => {
 };
 
 export default Chatbox;
-
-
