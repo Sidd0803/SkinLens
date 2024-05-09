@@ -1,54 +1,44 @@
 'use client'
-import React from "react";
-import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import Navigation from "../components/nav";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-// 84ACA9
+function ImageUpload() {
+    const [file, setFile] = useState(null);
+    const [label, setLabel] = useState('');
 
-function DiagnosisPage(){
+    const handleFileChange = (event) => {
+        setFile(event.target.files[0]);
+    };
 
-    return(
-        <main>
-        <Navigation/>
-        <div class = 'border-0'>
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (!file) {
+            alert('Please select a file first!');
+            return;
+        }
 
-                <Card className="text-center border-0">
-                
-                    <Card.Body>
-                        <Image src="banana.jpg"xs = {2} md = {2} xl = {1} width={400} height={350} rounded/> 
-                    </Card.Body>
-                </Card>
+        const formData = new FormData();
+        formData.append('file', file);
 
-                <div className="text-center col-xs-2 border-0">
-                <Form.Group controlId="formFile" className="col-xs-2 border-0" style={{ width: '400px', margin: '0 auto' }}>
-                    <Form.Label>Upload a photo for diagnosis</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                </div>
+        try {
+            const response = await axios.get('http://localhost:5000/upload');
+            setLabel(response.data);
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            alert('Failed to upload file');
+        }
+    };
 
-                    <Card className = "text-center border-0">
-                        <Card.Title>
-                            Your Classification Results
-                        </Card.Title>
-
-                        <Card.Body>
-                        <div style={{ width: '400px', 
-                                      height: '300px', 
-                                      backgroundColor: '#84ACA9', 
-                                      margin: '0 auto', display: 'flex', 
-                                      justifyContent: 'center', 
-                                      alignItems: 'center', 
-                                      borderRadius: '10px'}}>
-                       Loading results.....
-                      </div>
-                        </Card.Body>
-                    </Card>
+    return (
+        <div>
+            <h1>Upload an Image</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="file" onChange={handleFileChange} />
+                <button type="submit">Upload</button>
+            </form>
+            {label && <p>Label: {label}</p>}
         </div>
-        </main>
-
-    )
+    );
 }
 
-export default DiagnosisPage;
+export default ImageUpload;
