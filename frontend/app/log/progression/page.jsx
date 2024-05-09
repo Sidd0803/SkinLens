@@ -7,7 +7,9 @@ import { Button, Card, Image, Stack, Modal, Form } from 'react-bootstrap';
 function ProgressionPage() {
     const defaultImage = '../../genericlesion.jpeg';
     const [entries, setEntries] = useState([
-        { id: 1, date: '5/4/2024', imageName: defaultImage, description: 'Initial Description', typeName: 'Initial Type' }
+        { id: 1, date: '5/4/2024', imageName: defaultImage, description: 'Initial Description', typeName: 'Initial Type' },
+        { id: 2, date: '5/5/2024', imageName: defaultImage, description: 'Second Description', typeName: 'Second Type' },
+        { id: 3, date: '5/6/2024', imageName: defaultImage, description: 'Third Description', typeName: 'Third Type' }
     ]);
     const [showModal, setShowModal] = useState(false);
     const [newTypeName, setNewTypeName] = useState('');
