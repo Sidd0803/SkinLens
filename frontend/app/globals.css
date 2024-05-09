@@ -66,7 +66,7 @@
   
   .menu-button {
     background-color: transparent;
-    color: blue;
+    color:#84ACA9;
     font-size: 20px;
     border: none;
     cursor: pointer;
@@ -79,24 +79,24 @@
   }
   
   .menu a {
-    color: blue;
+    color: #84ACA9;
     text-decoration: none;
     padding: 10px;
   }
 
   .menu a:visited
   {
-    color: blue;
+    color: #84ACA9;
     text-decoration: none;
   }
   
   .menu a:hover {
-    background-color: #0056b3;
+    background-color: #84ACA9;
     text-decoration: none;
   }
   
   .menu-button-left a:visited{
-    color: blue;
+    color: #84ACA9;
     text-decoration: none;
   }
 
@@ -106,7 +106,7 @@
  
  
    .menu-button-left a{
-     color: blue;
+     color: #84ACA9;
      text-decoration: none;
    }
  
