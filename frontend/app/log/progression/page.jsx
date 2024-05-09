@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import Navigation from '../../components/nav';
-import styles from './page.modules.css'; // Assuming CSS Modules are being used correctly
+import styles from './page.modules.css'; 
 import { Button, Card, Image, Stack, Modal, Form } from 'react-bootstrap';
 
 function ProgressionPage() {

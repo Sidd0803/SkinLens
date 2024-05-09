@@ -10,8 +10,6 @@ import Card from 'react-bootstrap/Card';
 
 
 function HomePage() {
-  // Fake data for current routine and products
-
 
   return (
     <main >
@@ -23,7 +21,7 @@ function HomePage() {
           <Row>
             <Col lg = {6}>
             <h1 style={{ color: '#84ACA9'}} >Hello, Alex {' '}
-              <Image src="SkinLensLogo.jpg" width = "50" height = "50" roundedCircle style={{ marginLeft: '20px'}} />
+              <Image src="SkinLensLogo.jpg" width = "25" height = "25" roundedCircle style={{ marginLeft: '20px'}} />
             </h1>
             </Col>
           </Row>
@@ -50,7 +48,7 @@ function HomePage() {
 
     <div style={{ paddingTop: '20px', textAlign: 'center' }}>
     <h2 style={{fontSize: '24px'}}>Recent Doctor's Recommendations and Notes</h2>
-      <Card className="text-center" style={{ width: '400px', height: '500px', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
+      <Card className="text-center" style={{ width: '400px', height: 'auto', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
         <Card.Body style = {{color: 'white'}}>
           <Card.Title></Card.Title>
           <div style={{ marginBottom: '20px' }}>
