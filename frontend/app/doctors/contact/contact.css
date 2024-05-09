@@ -1,21 +1,26 @@
 .container {
     display: flex;
-    height: 90vh; /* maintain the height */
-    margin: 20px auto;
-    max-width: 80%; /* Adjust based on your design */
-    width: 80%; /* make it responsive */
+    flex-direction: column;
+    height: 100vh;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .chat-selector {
-    width: 20%; /* Set the width of the chat selector */
-    background-color: #f2f2f2; /* A light background for the chat selector */
-    overflow-y: auto; /* Allows scrolling */
-    border-right: 1px solid #ccc; /* Separates the chat selector from chatbox */
+    width: 20%; /* Adjust the width for larger screens */
+    background-color: #f2f2f2;
+    overflow-y: auto;
+    border-right: 1px solid #ccc;
+}
+
+.chat-selector.collapsed {
+    width: 0; /* Collapse the chat selector on smaller screens */
+    overflow: hidden;
 }
 
 .chat-selector-header {
     padding: 10px;
-    background-color: #a9d1cf; /* Matching the chatbox header */
+    background-color: #a9d1cf;
     color: white;
     font-weight: bold;
     text-align: center;
@@ -34,33 +39,10 @@
 }
 
 .chatbox {
-    flex-grow: 1; /* Allows chatbox to take remaining space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     background: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-
-.chat-item {
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.chat-item:hover, .chat-item.active {
-    background-color: #84aca9;
-    color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .chatbox {
-        max-width: 95%; 
-        width: 95%;
-        margin: 10px auto;
-    }
 }
 
 .chat-messages {
@@ -71,40 +53,26 @@
     flex-direction: column;
     gap: 10px;
 }
+
 .message {
-    max-width: 30%;
-    min-width: 20%;
+    max-width: 80%;
     margin-bottom: 4px;
     padding: 8px;
     border-radius: 15px;
-    background-color: #84ACA9;
-    color: white;
     line-height: 1.5;
     word-wrap: break-word;
 }
 
 .message.sent {
-    align-self: flex-end; 
-    background-color: #84ACA9;  
+    align-self: flex-end;
+    background-color: #84aca9;
+    color: #ffffff;
 }
 
 .message.received {
-    align-self: flex-start; 
-    background-color: #DADEDF; 
-    color:#555f61
-}
-
-.chat-messages div {
-    max-width: 90%; 
-    min-width: 20%;
-    margin-bottom: 4px;
-    padding: 8px;
-    border-radius: 15px;
-    background-color: #84ACA9;
-    color: white;
-    line-height: 1.5;
-    word-wrap: break-word;
-    align-self: flex-end; 
+    align-self: flex-start;
+    background-color: #dadedf;
+    color: #555f61;
 }
 
 .chat-input {
@@ -125,15 +93,11 @@
 
 .chat-input button {
     padding: 10px 15px;
-    background-color: #84ACA9;
+    background-color: #84aca9;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.chat-input button:hover {
-    background-color: #84ACA9;
 }
 
 .icon-button {
@@ -142,50 +106,19 @@
     color: white;
     cursor: pointer;
     font-size: 16px;
-    margin: 0 5px; 
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-}
-
-.icon-button:hover {
-    color: #aad1f9;
+    margin: 0 -1px;
 }
 
 .chat-title {
-    flex-grow: 1; /* Allows the title to take up the maximum available space */
-    text-align: center; /* Ensures the title is centered */
+    flex-grow: 1;
+    text-align: center;
     font-weight: bold;
 }
 
 .chat-actions {
     display: flex;
-    /* If there are few or no items to balance the title, consider adjusting the width or padding */
-    width: 100px; /* Adjust this width as necessary to balance the title */
-    justify-content: flex-end; /* Aligns actions to the right */
-}
-
-
-.video-call-button, .phone-call-button {
-    margin-left: 5px; /* Space between buttons */
-}
-
-.video-call-button {
-    margin-right: 2px; 
-}
-
-.phone-call-button {
-    margin-left: 2px; 
-}
-
-.chat-header {
-    display: flex;
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 10px;
-    background-color: #84ACA9; 
-    color: white;
-    border-bottom: 1px solid #ccc;
+    justify-content: flex-end;
+    width: 100px;
 }
 
 .new-chat-button {
@@ -194,37 +127,104 @@
     color: white;
     cursor: pointer;
     padding: 5px;
-    margin-left: auto; /* pushes the button to the right */
+    margin-left: auto;
 }
 
-.chat-selector-header {
+.chat-header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures space between title and button */
+    justify-content: space-between;
     padding: 10px;
-    background-color: #6fc2ba;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}
-
-.chat-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-.chat-image {
-    width: 50px; /* Set the size of the profile image */
-    height: 50px;
-    border-radius: 50%; /* Makes the image circular */
-    margin-right: 10px; /* Space between the image and the chat name */
-}
-
-.chat-item:hover, .chat-item.active {
     background-color: #84aca9;
     color: white;
 }
 
+.chat-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: row; /* Change flex direction for smaller screens */
+    }
+
+    .chat-selector {
+        width: auto; /* Allow the chat selector to adjust its width */
+    }
+
+    .chatbox {
+        flex-grow: 1; /* Let the chatbox take up the remaining space */
+    }
+
+    .chat-selector.collapsed {
+        width: 0; /* Ensure the chat selector is collapsed initially */
+    }
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #a7c1c0;
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    padding:10px;
+}
+
+.chat-title:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust the margin as needed */
+    padding-bottom: 10px; /* Add padding-bottom for better spacing */
+    border-bottom: 2.5px solid #ffffff; /* Add border-bottom for divider */
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 0; /* Remove margin-bottom for the last item */
+    border-bottom: none; /* Remove border-bottom for the last item */
+
+}
+
+.dropdown-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.dropdown-item span {
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.dropdown-item:hover {
+    background-color: #ddd; /* Add hover effect */
+}
+
+.dropdown-icon {
+    margin-left: 5px;
+    transition: transform 0.3s ease; /* Add transition for smooth rotation */
+}
+
+.rotate {
+    transform: rotate(180deg); /* Rotate the dropdown icon when dropdown is open */
+}
+
+.bold {
+    font-weight: bold;
+}

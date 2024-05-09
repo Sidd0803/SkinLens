@@ -1,6 +1,13 @@
+'use client'
 import React from 'react';
 import Navigation from '../components/nav';
-import './page.modules.css'
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+
 
 function HomePage() {
   // Fake data for current routine and products
@@ -10,39 +17,53 @@ function HomePage() {
     <main >
     <Navigation/>
  
-    <div className="container">
+    <div className="container" style={{ paddingTop: '70px' }}>
        
-        
-      <h1>Welcome to Your Skin Care Management App</h1>
+        <Container>
+          <Row>
+            <Col lg = {6}>
+            <h1 style={{ color: '#84ACA9'}} >Hello, Alex {' '}
+              <Image src="SkinLensLogo.jpg" width = "50" height = "50" roundedCircle style={{ marginLeft: '20px'}} />
+            </h1>
+            </Col>
+          </Row>
+        </Container>
+    </div>
+    <div style={{textAlign: 'center'}}>
+          <Button href="diagnosis" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} >Get a Diagnosis</Button>{' '} 
+          <Button href="doctors/contact" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Contact Doctor</Button>{' '}
+          <Button href="log/progression" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Log</Button> 
+    </div>
 
-    <div>
-      <p>
-      Log New Skincare, Medication, or Progress <button className="log-button" href = "/log">Log</button>
-      </p>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <h2 style={{fontSize: '24px'}}>Your current medications</h2>
+        <div>
+          <Image src="meds.png" width="50" height="50" roundedCircle />
+          <span style={{ marginLeft: '20px', fontSize: '20px', color: 'black' }}> Vismodegib</span>
+        </div>
+        <div style={{ marginTop: '20px' }}>
+          <Image src="moisturizer.png" width="50" height="50" roundedCircle />
+          <span style={{ marginLeft: '20px', fontSize: '20px', color: 'black' }}>Fluorouracil </span>
+        </div>
       </div>
 
-      <section>
-        <h2>Your Current Routine and Products</h2>
-        <ul>
-          {currentRoutine.map((item, index) => (
-            <li key={index}>
-              <strong>{item.product}</strong> - {item.timeOfDay}
-            </li>
-          ))}
-        </ul>
-      </section>
 
-      <section>
-        <h2>Your Most Recent Progress Pictures</h2>
-        <div className="progress-pictures">
-          {progressPictures.map((pic, index) => (
-            <div key={index} className="progress-picture">
-              <img src={pic.image} alt={`Progress ${index + 1}`} />
-              <p>Date: {pic.date}</p>
+    <div style={{ paddingTop: '20px', textAlign: 'center' }}>
+    <h2 style={{fontSize: '24px'}}>Recent Doctor's Recommendations and Notes</h2>
+      <Card className="text-center" style={{ width: '400px', height: '500px', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
+        <Card.Body style = {{color: 'white'}}>
+          <Card.Title></Card.Title>
+          <div style={{ marginBottom: '20px' }}>
+              <Button variant="outline-dark" size="sm" style={{ borderRadius: '20px', marginRight: '10px' }}>Notes from Dr. Bellamy N</Button>
+              <p style={{ textAlign: 'left' }}>
+              Hello Alex,
+              Thank you for sending over the picture of your mole. From the initial observation, it appears to have some irregularities in shape and color, which we should examine more closely. I recommend scheduling a detailed in-person evaluation to ensure everything is thoroughly assessed. Please use our app to book an appointment at your earliest convenience. It's important we address this soon to determine the appropriate next steps.
+    
+              Best regards, Dr. Bellamy N
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
+        </Card.Body>
+    </Card>
     </div>
 
 
