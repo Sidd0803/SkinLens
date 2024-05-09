@@ -2,38 +2,52 @@
 import React from "react";
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
-import { Button } from "react-bootstrap";
 import Form from 'react-bootstrap/Form';
+import Navigation from "../components/nav";
+
+// 84ACA9
 
 function DiagnosisPage(){
 
     return(
-
         <main>
+        <Navigation/>
+        <div class = 'border-0'>
 
-                <Card className="text-center">
+                <Card className="text-center border-0">
                 
                     <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                        <Image src="banana.jpg"xs = {2} md = {2} xl = {1} width={200} height={200} rounded/> 
+                        <Image src="banana.jpg"xs = {2} md = {2} xl = {1} width={400} height={350} rounded/> 
                     </Card.Body>
                 </Card>
 
-                <Form.Group controlId="formFile" className="text-center">
+                <div className="text-center col-xs-2 border-0">
+                <Form.Group controlId="formFile" className="col-xs-2 border-0" style={{ width: '400px', margin: '0 auto' }}>
                     <Form.Label>Upload a photo for diagnosis</Form.Label>
-                    <Form.Control type="file" />
+                    <Form.Control type="file"/>
                 </Form.Group>
+                </div>
 
-                    <Card className = "text-center">
+                    <Card className = "text-center border-0">
                         <Card.Title>
-                            Your Results
-                            </Card.Title>
+                            Your Classification Results
+                        </Card.Title>
 
                         <Card.Body>
-                            Some data about your results go here!
+                        <div style={{ width: '400px', 
+                                      height: '300px', 
+                                      backgroundColor: '#84ACA9', 
+                                      margin: '0 auto', display: 'flex', 
+                                      justifyContent: 'center', 
+                                      alignItems: 'center', 
+                                      borderRadius: '10px'}}>
+                       Loading results.....
+                      </div>
                         </Card.Body>
                     </Card>
+        </div>
         </main>
+
     )
 }
 

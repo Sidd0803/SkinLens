@@ -15,7 +15,6 @@ const Navigation = () => {
   }, []);
 
   return (
-    <main>
 
       <div className = 'menu-container'>
         <div className = 'menu-button-left'>
@@ -39,7 +38,7 @@ const Navigation = () => {
           )}
         </div>
       </div>
-    </main>
+
   );
 };
 

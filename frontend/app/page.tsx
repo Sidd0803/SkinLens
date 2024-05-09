@@ -1,14 +1,15 @@
 'use client'
-import Navigation from "./components/nav";
+// import Navigation from "./components/nav";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import DiagnosisPage from "./diagnosis/page";
 
 const Home = () => {
 
   return (
     <div>
-      <Navigation/>
+      {/* <Navigation/> */}
          <Container className="mt-5">
       <Row className="justify-content-center">
         <Col md={6}>
@@ -36,6 +37,8 @@ const App = () => {
     <div> 
 
       <Home />
+      <DiagnosisPage />
+
     </div>
   );
 }
