@@ -1,54 +1,61 @@
 'use client'
-import React from "react";
-import Image from 'react-bootstrap/Image';
-import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import Navigation from "../components/nav";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-// 84ACA9
+function ImageUpload() {
+    const [file, setFile] = useState(null);
+    const [label, setLabel] = useState('');
+    const [imagePreviewUrl, setImagePreviewUrl] = useState('');
 
-function DiagnosisPage(){
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        setFile(file);
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreviewUrl(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
 
-    return(
-        <main>
-        <Navigation/>
-        <div class = 'border-0'>
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setLabel(''); 
+        if (!file) {
+            alert('Please select a file first!');
+            return;
+        }
 
-                <Card className="text-center border-0">
-                
-                    <Card.Body>
-                        <Image src="banana.jpg"xs = {2} md = {2} xl = {1} width={400} height={350} rounded/> 
-                    </Card.Body>
-                </Card>
+        const formData = new FormData();
+        formData.append('file', file);
 
-                <div className="text-center col-xs-2 border-0">
-                <Form.Group controlId="formFile" className="col-xs-2 border-0" style={{ width: '400px', margin: '0 auto' }}>
-                    <Form.Label>Upload a photo for diagnosis</Form.Label>
-                    <Form.Control type="file"/>
-                </Form.Group>
-                </div>
+        fetch('http://127.0.0.1:5000', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+       
+      
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        setLabel(data.label); 
+    })
+    .catch(error => console.error('Error:', error));
+    };
 
-                    <Card className = "text-center border-0">
-                        <Card.Title>
-                            Your Classification Results
-                        </Card.Title>
-
-                        <Card.Body>
-                        <div style={{ width: '400px', 
-                                      height: '300px', 
-                                      backgroundColor: '#84ACA9', 
-                                      margin: '0 auto', display: 'flex', 
-                                      justifyContent: 'center', 
-                                      alignItems: 'center', 
-                                      borderRadius: '10px'}}>
-                       Loading results.....
-                      </div>
-                        </Card.Body>
-                    </Card>
+    return (
+        <div>
+            <h1>Upload an Image</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="file" onChange={handleFileChange} />
+                <button type="submit">Upload</button>
+            </form>
+            {imagePreviewUrl && <img src={imagePreviewUrl} alt="Image preview" style={{ maxWidth: '50%', height: 'auto' }}/>}
+            {label && <p>Label: {label}</p>}
         </div>
-        </main>
-
-    )
+    );
 }
 
-export default DiagnosisPage;
+export default ImageUpload;
