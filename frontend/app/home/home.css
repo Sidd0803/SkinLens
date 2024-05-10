@@ -1,0 +1,135 @@
+body {
+    background-color: #ffff; /* Sets a light grey background for the entire page */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+  
+  .header {
+    text-align: center;
+    color: #84ACA9;
+  }
+  
+  .header img {
+    margin-left: 20px;
+  }
+  
+  .button {
+    margin: 10px;
+    background-color: #84ACA9;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #76a1a0;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .med-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .med-item {
+    margin-top: 20px;
+    display: inline-block;
+  }
+  
+  .med-item img {
+    vertical-align: middle;
+  }
+  
+  .med-item span {
+    margin-left: 20px;
+    font-size: 20px;
+    color: black;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%; /* Responsive width */
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #f8f9fa;; /* White background for the card */
+    color: #333; /* Dark grey text for better readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds depth with a shadow */
+    border: 1px solid #ddd; /* Subtle border */
+  }
+  
+  .note-button-container {
+    margin-bottom: 10px;
+  }
+  
+  .note-button {
+    background: none;
+    border: 2px solid #84ACA9;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #84ACA9;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .note-button:hover {
+    background-color: #84ACA9;
+    color: white;
+  }
+
+  .notes-container {
+    text-align: center; /* Centers the text horizontally */
+    margin-top: 20px;
+  }
+  
+  /* Ensuring all text in .notes-container, including sub-elements, is centered */
+  .notes-container h2 {
+    margin-top: 0; /* Adjusts spacing if needed */
+    margin-bottom: 20px; /* Provides space below the heading */
+  }
+  
+  .med-container {
+    text-align: center; /* Centers the items in the container */
+  }
+  
+  .med-item {
+    display: inline-block; /* Keeps items side by side */
+    vertical-align: top; /* Aligns items at their top edges */
+    margin-right: 40px; /* Adds more space between the items */
+  }
+  
+  .med-item img {
+    vertical-align: middle; /* Aligns the image vertically in the middle of the text */
+    margin-right: 10px; /* Space between the image and the text */
+  }
+  
+  .med-item span {
+    vertical-align: middle; /* Aligns the text vertically in the middle of the image */
+    display: inline-block;
+    font-size: 20px;
+    color: black;
+  }
+  
+  
+  
+  

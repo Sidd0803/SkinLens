@@ -1,5 +1,5 @@
 'use client'
-// import Navigation from "./components/nav";
+//import Navigation from "./components/nav";
 import { useRouter } from "next/navigation";
 import DiagnosisPage from "./diagnosis/page";
 import HomePage from "./home/page";

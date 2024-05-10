@@ -1,70 +1,54 @@
 'use client'
 import React from 'react';
 import Navigation from '../components/nav';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import './home.css';
 
 
 function HomePage() {
-
   return (
-    <main >
-    <Navigation/>
- 
-    <div className="container" style={{ paddingTop: '70px' }}>
-       
-        <Container>
-          <Row>
-            <Col lg = {6}>
-            <h1 style={{ color: '#84ACA9'}} >Hello, Alex {' '}
-              <Image src="SkinLensLogo.jpg" width = "25" height = "25" roundedCircle style={{ marginLeft: '20px'}} />
-            </h1>
-            </Col>
-          </Row>
-        </Container>
-    </div>
-    <div style={{textAlign: 'center'}}>
-          <Button href="diagnosis" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px' }} >Get a Diagnosis</Button>{' '} 
-          <Button href="doctors/contact" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Contact Doctor</Button>{' '}
-          <Button href="log/progression" size="m" style={{ backgroundColor: '#84ACA9', borderRadius: '50px'}} >Log</Button> 
-    </div>
+    <main>
+      <Navigation />
 
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <h2 style={{fontSize: '24px'}}>Your current medications</h2>
-        <div>
-          <Image src="meds.png" width="50" height="50" roundedCircle />
-          <span style={{ marginLeft: '20px', fontSize: '20px', color: 'black' }}> Vismodegib</span>
+      <div className="container">
+        <div className="header">
+          <h1>Hello, Alex <img src="SkinLensLogo.jpg" width="25" height="25" alt="logo" /></h1>
         </div>
-        <div style={{ marginTop: '20px' }}>
-          <Image src="moisturizer.png" width="50" height="50" roundedCircle />
-          <span style={{ marginLeft: '20px', fontSize: '20px', color: 'black' }}>Fluorouracil </span>
+
+        <div className="button-container">
+          <a href="diagnosis" className="button">Get a Diagnosis</a>
+          <a href="doctors/contact" className="button">Contact Doctor</a>
+          <a href="log/progression" className="button">Log</a>
+        </div>
+        <div className="med-container">
+  <h2>Your current medications</h2>
+  <div className="med-item">
+    <img src="meds.png" width="50" height="50" alt="meds" />
+    <span>Vismodegib</span>
+  </div>
+  <div className="med-item">
+    <img src="moisturizer.png" width="50" height="50" alt="moisturizer" />
+    <span>Fluorouracil</span>
+  </div>
+</div>
+
+        <div className="notes-container">
+          <h2>Recent Doctor's Recommendations and Notes</h2>
+          <div className="card">
+  <div className="note-button-container">
+    <button className="note-button">Notes from Dr. Mensah T.</button>
+  </div>
+  <p>
+              Hello Alex,<br /> <br />
+              As I mentioned in the appointment, your mole had some irregularities in shape and color, which should be monitored closely.
+              I recommend scheduling another in-person evaluation within the next 2 weeks to ensure everything is thoroughly assessed.
+              In the meantime, you should continue taking the medication I prescribed.<br /> <br />
+              Best regards,<br />
+              Dr. Mensah T.
+            </p>
+</div>
+
         </div>
       </div>
-
-
-    <div style={{ paddingTop: '20px', textAlign: 'center' }}>
-    <h2 style={{fontSize: '24px'}}>Recent Doctor's Recommendations and Notes</h2>
-      <Card className="text-center" style={{ width: '400px', height: 'auto', margin: '0 auto', backgroundColor: '#84ACA9', color: 'black'}}>
-        <Card.Body style = {{color: 'white'}}>
-          <Card.Title></Card.Title>
-          <div style={{ marginBottom: '20px' }}>
-              <Button variant="outline-dark" size="sm" style={{ borderRadius: '20px', marginRight: '10px' }}>Notes from Dr. Bellamy N</Button>
-              <p style={{ textAlign: 'left' }}>
-              Hello Alex,
-              Thank you for sending over the picture of your mole. From the initial observation, it appears to have some irregularities in shape and color, which we should examine more closely. I recommend scheduling a detailed in-person evaluation to ensure everything is thoroughly assessed. Please use our app to book an appointment at your earliest convenience. It's important we address this soon to determine the appropriate next steps.
-    
-              Best regards, Dr. Bellamy N
-              </p>
-            </div>
-        </Card.Body>
-    </Card>
-    </div>
-
-
     </main>
   );
 }

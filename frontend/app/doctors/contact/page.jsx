@@ -4,22 +4,23 @@ import './contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo, faPhone, faPlus } from '@fortawesome/free-solid-svg-icons';
 
+
 const Chatbox = () => {
-    // Preset chat start with Dr. Mensah T.
     const initialChat = { 
         name: "Dr. Mensah T.", 
-        imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg" 
+        imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg"
     };
     
+    // Include `\n` in your message for line breaks
     const [messages, setMessages] = useState([
-        { text: `Starting chat with ${initialChat.name}`, type: 'received' }
+        { text: "Hello Alex,\n\nAs I mentioned in the appointment, your mole had some irregularities in shape and color, which should be monitored closely.\nI recommend scheduling another in-person evaluation within the next 2 weeks to ensure everything is thoroughly assessed.\nIn the meantime, you should continue taking the medication I prescribed.\n\nBest regards,\nDr. Bellamy N", type: 'received' }
     ]);
     const [message, setMessage] = useState('');
-    const [currentChat, setCurrentChat] = useState(initialChat); 
+    const [currentChat, setCurrentChat] = useState(initialChat);
     const [showChatList, setShowChatList] = useState(false);
 
     const chatList = [
-        initialChat,  // Use the same object to ensure consistency
+        initialChat,  // Reusing the same object to ensure consistency
         { name: "Dr. Bellamy N.", imageUrl: "https://media.istockphoto.com/id/138205019/photo/happy-healthcare-practitioner.jpg?s=612x612&w=0&k=20&c=b8kUyVtmZeW8MeLHcDsJfqqF0XiFBjq6tgBQZC7G0f0=" },
         { name: "Dr. Sasha Y.", imageUrl: "https://c8.alamy.com/comp/2BE42N7/smiling-asian-female-doctor-in-white-coat-2BE42N7.jpg" }
     ];
@@ -60,9 +61,20 @@ const Chatbox = () => {
         }
     };
 
+    // Update message rendering to convert \n to <br />
+    const renderMessageText = text => {
+        return text.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+                {line}
+                <br />
+            </React.Fragment>
+        ));
+    };
+
     return (
         <div className="container">
             <div className="chatbox">
+           
                 <div className="chat-header">
                     <div className="chat-title" onClick={toggleChatList}>
                         <img src={currentChat.imageUrl} alt={currentChat.name} className="chat-image" />
@@ -96,7 +108,7 @@ const Chatbox = () => {
                                     <img src={msg.file} alt="attachment" style={{ maxWidth: '200px', maxHeight: '200px' }} />
                                 </div>
                             ) : (
-                                <p>{msg.text}</p>
+                                <p>{renderMessageText(msg.text)}</p>
                             )}
                         </div>
                     ))}
