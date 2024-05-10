@@ -33,7 +33,8 @@ function ImageUpload() {
         fetch('http://127.0.0.1:5000', {
         method: 'POST',
         body: formData,
-        mode: "no-cors"
+        mode: 'no-cors'
+       
       
     })
     .then(response => response.json())

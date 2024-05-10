@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 import sys
-from test_model import classify
+from pytorch_model import get_prediction
 
 # Ensure the uploads directory exists
 uploads_dir = os.path.join(app.instance_path, 'uploads')
@@ -27,7 +27,7 @@ def upload_file():
         print(f"File {file.filename} saved to {file_path}.", file=sys.stderr)
 
         # Process the image and generate a label (mock function)
-        label = classify(file_path)
+        label = get_prediction(file_path)
         print(f"Classified {file.filename} as {label}.")
 
         # Return the label
