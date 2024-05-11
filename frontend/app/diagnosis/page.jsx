@@ -51,8 +51,9 @@ function ImageUpload() {
             <div className="upload-section">
                 <h2>Upload Your Image for Diagnosis</h2>
             </div>
-                <form onSubmit={handleSubmit}>
-                    <input type="file" onChange={handleFileChange} />
+            <form onSubmit={handleSubmit}>
+                    <label htmlFor="file-upload" className="custom-file-button">Choose File</label>
+                    <input id="file-upload" type="file" onChange={handleFileChange} style={{ display: 'none' }} />
                     <button type="submit">Upload</button>
                 </form>
                 <div className="image-placeholder"> 

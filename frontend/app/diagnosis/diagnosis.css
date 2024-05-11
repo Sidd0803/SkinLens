@@ -58,17 +58,41 @@ h2 {
     margin: auto; /* Centers the image within the placeholder */
 }
 
+/* Ensure the parent of the form is a flex container if it's not the main container itself */
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensures the section takes full width */
+}
+
+/* Centering form elements using flexbox */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width to ensure centering within the parent */
+    gap: 20px;
+}
+
+input[type="file"] {
+    margin: 10px 0; /* Provides spacing around the input */
+    cursor: pointer;
+}
+
 button {
-    background-color: #84ACA9;
-    color: white;
-    border: none;
     padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #84ACA9;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    display: block; /* Make the button a block element */
-    margin: 10px auto; /* Auto margin for horizontal centering */
+    display: block; /* Block display with margin auto to center */
+    margin: 10px auto; /* Centers the button horizontally */
 }
+
 
 input[type="file"] {
     display: inline-block; /* Ensures the element is centerable */
@@ -120,5 +144,4 @@ input[type="file"] {
     margin-bottom: 10px; /* Adds spacing between paragraphs */
     font-weight: normal; /* Standard font weight for readability */
 }
-
 
