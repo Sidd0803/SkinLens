@@ -39,9 +39,9 @@ function HomePage() {
   </div>
   <p>
               Hello Alex,<br /> <br />
-              As I mentioned in the appointment, your mole had some irregularities in shape and color, which should be monitored closely.
-              I recommend scheduling another in-person evaluation within the next 2 weeks to ensure everything is thoroughly assessed.
-              In the meantime, you should continue taking the medication I prescribed.<br /> <br />
+              At first look, your mole has some irregularities in shape and color, which should be monitored closely.
+              I recommend scheduling an in-person evaluation within the next 2 weeks to ensure everything is thoroughly assessed.
+              Do reach out if you have any more questions or concerns.<br /> <br />
               Best regards,<br />
               Dr. Mensah T.
             </p>

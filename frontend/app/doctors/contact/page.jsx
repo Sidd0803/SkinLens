@@ -4,17 +4,26 @@ import './contact.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVideo, faPhone, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-
 const Chatbox = () => {
     const initialChat = { 
         name: "Dr. Mensah T.", 
         imageUrl: "https://img.freepik.com/premium-photo/tablet-black-man-portrait-doctor-healthcare-services-telehealth-analysis-hospital-network-young-medical-professional-digital-technology-clinic-research-consulting-planning_590464-213559.jpg"
     };
     
-    // Include `\n` in your message for line breaks
-    const [messages, setMessages] = useState([
-        { text: "Hello Alex,\n\nAs I mentioned in the appointment, your mole had some irregularities in shape and color, which should be monitored closely.\nI recommend scheduling another in-person evaluation within the next 2 weeks to ensure everything is thoroughly assessed.\nIn the meantime, you should continue taking the medication I prescribed.\n\nBest regards,\nDr. Bellamy N", type: 'received' }
-    ]);
+    const initialMessages = [
+        {
+            type: 'sent',
+            file: 'https://illinoisderm.com/wp-content/uploads/2021/11/Skin-Cancer-Square-1-450x475.jpg',  // Example image URL
+            text: 'Dear Dr. Mensah T,\n\nI have uploaded a picture of my mole below. Could you \nplease take a look and let me know what you think? \n\nThanks,\nAlex' 
+        },
+        {   
+            type: 'received',
+            text: "Hello Alex,\n\nAt first look, your mole has some irregularities in shape and color,\n which should be monitored closely. I recommend scheduling an\n in-person evaluation within the next 2 weeks to ensure everything\n is thoroughly assessed. Please reach out if you have any more\n questions or concerns.\n\nBest regards,\nDr. Mensah T."
+        }
+    ];
+    
+
+    const [messages, setMessages] = useState(initialMessages);
     const [message, setMessage] = useState('');
     const [currentChat, setCurrentChat] = useState(initialChat);
     const [showChatList, setShowChatList] = useState(false);
@@ -62,19 +71,20 @@ const Chatbox = () => {
     };
 
     // Update message rendering to convert \n to <br />
-    const renderMessageText = text => {
-        return text.split('\n').map((line, index) => (
-            <React.Fragment key={index}>
-                {line}
-                <br />
-            </React.Fragment>
-        ));
-    };
+    // Function to convert \n to <br /> for display
+const renderMessageText = text => {
+    return text.split('\n').map((line, index) => (
+        <React.Fragment key={index}>
+            {line}
+            <br />
+        </React.Fragment>
+    ));
+};
+
 
     return (
         <div className="container">
             <div className="chatbox">
-           
                 <div className="chat-header">
                     <div className="chat-title" onClick={toggleChatList}>
                         <img src={currentChat.imageUrl} alt={currentChat.name} className="chat-image" />
@@ -100,19 +110,20 @@ const Chatbox = () => {
                     </div>
                 </div>
                 <div className="chat-messages">
-                    {messages.map((msg, index) => (
-                        <div key={index} className={`message ${msg.type}`}>
-                            {msg.file ? (
-                                <div>
-                                    <p>Attachment: <span>{msg.text}</span></p>
-                                    <img src={msg.file} alt="attachment" style={{ maxWidth: '200px', maxHeight: '200px' }} />
-                                </div>
-                            ) : (
-                                <p>{renderMessageText(msg.text)}</p>
-                            )}
-                        </div>
-                    ))}
+    {messages.map((msg, index) => (
+        <div key={index} className={`message ${msg.type}`}>
+            {msg.file ? (
+                <div>
+                    <p>{renderMessageText(msg.text)}</p>
+                    <img src={msg.file} alt="attachment" style={{ maxWidth: '200px', maxHeight: '200px' }} />
                 </div>
+            ) : (
+                <p>{renderMessageText(msg.text)}</p>
+            )}
+        </div>
+    ))}
+</div>
+
                 <div className="chat-input">
                     <input type="file" id="file-input" style={{ display: 'none' }} onChange={handleFileSelect} />
                     <button className="icon-button attachment-button" onClick={() => document.getElementById('file-input').click()}>
