@@ -1,0 +1,124 @@
+h2 {
+    color: #84ACA9; /* Consistent hex code casing, removed double semicolon */
+}
+
+.results-section {
+    width: 80%;
+    padding: 20px;
+    border: 2px solid #84ACA9;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    min-height: 300px; /* Minimum height set to 300px, will grow with more content */
+}
+
+
+.placeholder-content {
+    font-size: 16px; /* Ensure placeholder text size is explicitly set */
+    text-align: center;
+}
+
+/* DiagnosisPage.css */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #343a40;
+}
+
+.upload-section, .results-section {
+    width: 50%;
+    padding: 20px;
+    border: 2px solid #84ACA9;
+    margin: 10px auto; /* Auto margins for horizontal centering */
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    text-align: center; /* Centers all text within these sections */
+}
+
+.image-placeholder {
+    width: 300px; /* Fixed width for square shape */
+    height: 300px; /* Same value as width to make it a square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #84ACA9;
+    margin: 20px auto; /* Center the square horizontally */
+    background-color: #ffffff; /* Optional: Set a background color */
+    overflow: hidden;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    object-fit: contain;
+    margin: auto; /* Centers the image within the placeholder */
+}
+
+button {
+    background-color: #84ACA9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block; /* Make the button a block element */
+    margin: 10px auto; /* Auto margin for horizontal centering */
+}
+
+input[type="file"] {
+    display: inline-block; /* Ensures the element is centerable */
+    margin: 20px auto; /* Center the file input horizontally */
+    width: auto; /* Let input decide its width */
+    cursor: pointer;
+}
+
+.form-file {
+    text-align: center; /* Centers the file input */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center; /* Centers the buttons horizontally */
+    gap: 5px; /* Reduces the space between the buttons */
+    width: 100%; /* Ensures the button group takes full width of its parent */
+}
+
+.custom-file-button, button[type="submit"] {
+    padding: 10px 20px; /* Provides padding inside the buttons */
+    border-radius: 5px; /* Rounded corners for aesthetic */
+    font-size: 16px; /* Sets the font size for text within the buttons */
+    cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    border: none; /* Removes the default border */
+    background-color: #84ACA9; /* Background color for the buttons */
+    color: white; /* Text color for the buttons */
+    min-width: 120px; /* Minimum width to ensure readability */
+    max-width: 200px; /* Maximum width to control expansion */
+    margin: 0 10px; /* Centers buttons with a bit of horizontal margin */
+}
+
+.label-description-box {
+    width: 50%; /* Matches width of other sections for consistency */
+    padding: 20px; /* Padding to maintain visual consistency */
+    border: 2px solid #84ACA9; /* Consistent border color and size */
+    margin: 20px auto; /* Center the box and provide spacing around */
+    border-radius: 10px; /* Rounded corners like other containers */
+    background-color: #f8f9fa; /* Consistent background color */
+    text-align: center; /* Center the text inside the box */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    color: #343a40; /* Font color consistent with main container */
+    font-size: 16px; /* Standard font size */
+    white-space: pre-wrap; 
+}
+
+/* Optional: More specific styling for labels and descriptions */
+.label-description-box p {
+    margin-bottom: 10px; /* Adds spacing between paragraphs */
+    font-weight: normal; /* Standard font weight for readability */
+}
+
+
